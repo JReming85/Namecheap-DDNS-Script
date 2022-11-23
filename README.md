@@ -6,7 +6,7 @@ You can further setup a cron to run and auto update
 
 e.g. Have it run every 30 minutes
 
-First chmod +x ./namecheap.sh or you can prepend with /bin/bash namecheap.sh
+First `chmod +x ./namecheap.sh` or you can prepend with `/bin/bash namecheap.sh`
 
 Then `nano /etc/crontab`
 
