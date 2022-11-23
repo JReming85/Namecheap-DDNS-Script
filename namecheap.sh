@@ -4,11 +4,17 @@ host="subdomain"
 domain="domain.com"
 pass="supersecretpassword"
 url="https://dynamicdns.park-your-domain.com/update?host=$host&domain=$domain&password=$pass&ip="
+method="dns"
 
+if [[ $method == "dns"]]; then
 # Google DNS to My IP
 ipcheck1=$(dig TXT +short o-o.myaddr.l.google.com @ns1.google.com)
 # OpenDNS DNS to My IP
 ipcheck2=$(dig +short myip.opendns.com @resolver1.opendns.com)
+else
+ipcheck1=$(curl ifconfig.me)
+ipcheck2=$(curl icanhazip.com)
+fi
 
 # Remove " From IP
 ip=$(echo $ipcheck1 |sed 's/"//g')
